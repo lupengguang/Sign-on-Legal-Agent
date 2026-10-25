@@ -5,9 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>签安 SignSafe</title>
     <script>
-      // GitHub Pages SPA 回退：记录 404 原始路径并跳回入口
-      sessionStorage.setItem('spa-redirect', location.pathname + location.search + location.hash)
-      location.replace('/Sign-on-Legal-Agent/')
+      // GitHub Pages SPA 回退：把 404 路径转为 hash 路由
+      ;(function () {
+        var base = '/Sign-on-Legal-Agent'
+        var path = location.pathname.startsWith(base)
+          ? location.pathname.slice(base.length)
+          : location.pathname
+        location.replace(base + '/#' + (path || '/') + location.search)
+      })()
     </script>
   </head>
   <body></body>
