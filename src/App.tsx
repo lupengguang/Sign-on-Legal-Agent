@@ -4,6 +4,7 @@ import { Link, Route, Routes } from 'react-router-dom'
 import { Shader, Swirl, ChromaFlow, FlutedGlass, FilmGrain } from 'shaders/react'
 import ProductOverview from './pages/ProductOverview'
 import CoreAdvantages from './pages/CoreAdvantages'
+import TechArchitecture from './pages/TechArchitecture'
 
 interface NavItem {
   label: string
@@ -18,7 +19,7 @@ const NAV_ITEMS: NavItem[] = [
     children: [
       { label: '产品概览', desc: '签安 Agent 核心能力速览', href: '/product' },
       { label: '核心优势', desc: '大模型 + 律师双引擎', href: '/advantages' },
-      { label: '技术架构', desc: '多模态与合规底座', href: '#' },
+      { label: '技术架构', desc: '多模态与合规底座', href: '/architecture' },
     ],
   },
   {
@@ -1126,6 +1127,7 @@ export default function App() {
       <Route path="/" element={<Home />} />
       <Route path="/product" element={<ProductOverview />} />
       <Route path="/advantages" element={<CoreAdvantages />} />
+      <Route path="/architecture" element={<TechArchitecture />} />
     </Routes>
   )
 }
