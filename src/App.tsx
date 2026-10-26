@@ -16,6 +16,7 @@ import EquityCooperation from './pages/scenarios/EquityCooperation'
 import AlgorithmFiling from './pages/compliance/AlgorithmFiling'
 import DataProtection from './pages/compliance/DataProtection'
 import HumanReviewBoundary from './pages/compliance/HumanReviewBoundary'
+import PolicySupport from './pages/about/PolicySupport'
 
 interface NavItem {
   label: string
@@ -77,7 +78,7 @@ const NAV_ITEMS: NavItem[] = [
     children: [
       { label: '京师案例', desc: '京师律所标杆合作案例', href: '#' },
       { label: '团队', desc: '法律 + AI 跨界核心团队', href: '#' },
-      { label: '政策资源', desc: '深度政策与行业资源背书', href: '#' },
+      { label: '政策资源', desc: '深度政策与行业资源背书', href: '/about/policy-support' },
     ],
   },
 ]
@@ -1150,6 +1151,7 @@ export default function App() {
       <Route path="/compliance/filing" element={<AlgorithmFiling />} />
       <Route path="/compliance/data" element={<DataProtection />} />
       <Route path="/compliance/review" element={<HumanReviewBoundary />} />
+      <Route path="/about/policy-support" element={<PolicySupport />} />
     </Routes>
   )
 }
