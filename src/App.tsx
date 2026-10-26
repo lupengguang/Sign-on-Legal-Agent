@@ -5,6 +5,10 @@ import { Shader, Swirl, ChromaFlow, FlutedGlass, FilmGrain } from 'shaders/react
 import ProductOverview from './pages/ProductOverview'
 import CoreAdvantages from './pages/CoreAdvantages'
 import TechArchitecture from './pages/TechArchitecture'
+import MultiModalParsing from './pages/features/MultiModalParsing'
+import RiskAnnotation from './pages/features/RiskAnnotation'
+import PlainTalkScript from './pages/features/PlainTalkScript'
+import LawyerReview from './pages/features/LawyerReview'
 
 interface NavItem {
   label: string
@@ -26,10 +30,10 @@ const NAV_ITEMS: NavItem[] = [
     label: '产品功能',
     href: '#',
     children: [
-      { label: '多模态合同解析', desc: '图片 / PDF / 扫描件一键结构化', href: '#' },
-      { label: '条款风险标注', desc: '高风险条款自动高亮提示', href: '#' },
-      { label: '白话解读与话术', desc: '法律条文转通俗表达', href: '#' },
-      { label: '律师复核留痕', desc: '人工复核全程可追溯', href: '#' },
+      { label: '多模态合同解析', desc: '图片 / PDF / 扫描件一键结构化', href: '/features/parsing' },
+      { label: '条款风险标注', desc: '高风险条款自动高亮提示', href: '/features/risk' },
+      { label: '白话解读与话术', desc: '法律条文转通俗表达', href: '/features/plain-talk' },
+      { label: '律师复核留痕', desc: '人工复核全程可追溯', href: '/features/lawyer-review' },
     ],
   },
   {
@@ -1128,6 +1132,10 @@ export default function App() {
       <Route path="/product" element={<ProductOverview />} />
       <Route path="/advantages" element={<CoreAdvantages />} />
       <Route path="/architecture" element={<TechArchitecture />} />
+      <Route path="/features/parsing" element={<MultiModalParsing />} />
+      <Route path="/features/risk" element={<RiskAnnotation />} />
+      <Route path="/features/plain-talk" element={<PlainTalkScript />} />
+      <Route path="/features/lawyer-review" element={<LawyerReview />} />
     </Routes>
   )
 }
