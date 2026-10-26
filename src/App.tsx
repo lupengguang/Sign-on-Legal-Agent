@@ -13,6 +13,9 @@ import LaborEmployment from './pages/scenarios/LaborEmployment'
 import PurchaseSales from './pages/scenarios/PurchaseSales'
 import LeaseService from './pages/scenarios/LeaseService'
 import EquityCooperation from './pages/scenarios/EquityCooperation'
+import AlgorithmFiling from './pages/compliance/AlgorithmFiling'
+import DataProtection from './pages/compliance/DataProtection'
+import HumanReviewBoundary from './pages/compliance/HumanReviewBoundary'
 
 interface NavItem {
   label: string
@@ -54,9 +57,9 @@ const NAV_ITEMS: NavItem[] = [
     label: '安全与合规',
     href: '#',
     children: [
-      { label: '回应算法备案', desc: '已完成大模型算法合规备案', href: '#' },
-      { label: '数据不训练', desc: '客户合同数据绝不用于模型训练', href: '#' },
-      { label: '人工复核边界', desc: '律师介入边界与责任划分清晰', href: '#' },
+      { label: '回应算法备案', desc: '已完成大模型算法合规备案', href: '/compliance/filing' },
+      { label: '数据不训练', desc: '客户合同数据绝不用于模型训练', href: '/compliance/data' },
+      { label: '人工复核边界', desc: '律师介入边界与责任划分清晰', href: '/compliance/review' },
     ],
   },
   {
@@ -1144,6 +1147,9 @@ export default function App() {
       <Route path="/scenarios/purchase" element={<PurchaseSales />} />
       <Route path="/scenarios/lease" element={<LeaseService />} />
       <Route path="/scenarios/equity" element={<EquityCooperation />} />
+      <Route path="/compliance/filing" element={<AlgorithmFiling />} />
+      <Route path="/compliance/data" element={<DataProtection />} />
+      <Route path="/compliance/review" element={<HumanReviewBoundary />} />
     </Routes>
   )
 }
