@@ -9,6 +9,10 @@ import MultiModalParsing from './pages/features/MultiModalParsing'
 import RiskAnnotation from './pages/features/RiskAnnotation'
 import PlainTalkScript from './pages/features/PlainTalkScript'
 import LawyerReview from './pages/features/LawyerReview'
+import LaborEmployment from './pages/scenarios/LaborEmployment'
+import PurchaseSales from './pages/scenarios/PurchaseSales'
+import LeaseService from './pages/scenarios/LeaseService'
+import EquityCooperation from './pages/scenarios/EquityCooperation'
 
 interface NavItem {
   label: string
@@ -40,10 +44,10 @@ const NAV_ITEMS: NavItem[] = [
     label: '适用场景',
     href: '#',
     children: [
-      { label: '劳动用工', desc: '劳动合同 / 规章制度审查', href: '#' },
-      { label: '采购销售', desc: '买卖 / 服务合同风险把关', href: '#' },
-      { label: '租赁服务', desc: '房屋 / 设备租赁协议', href: '#' },
-      { label: '股权合作', desc: '股东协议 / 投资条款审查', href: '#' },
+      { label: '劳动用工', desc: '劳动合同 / 规章制度审查', href: '/scenarios/labor' },
+      { label: '采购销售', desc: '买卖 / 服务合同风险把关', href: '/scenarios/purchase' },
+      { label: '租赁服务', desc: '房屋 / 设备租赁协议', href: '/scenarios/lease' },
+      { label: '股权合作', desc: '股东协议 / 投资条款审查', href: '/scenarios/equity' },
     ],
   },
   {
@@ -1136,6 +1140,10 @@ export default function App() {
       <Route path="/features/risk" element={<RiskAnnotation />} />
       <Route path="/features/plain-talk" element={<PlainTalkScript />} />
       <Route path="/features/lawyer-review" element={<LawyerReview />} />
+      <Route path="/scenarios/labor" element={<LaborEmployment />} />
+      <Route path="/scenarios/purchase" element={<PurchaseSales />} />
+      <Route path="/scenarios/lease" element={<LeaseService />} />
+      <Route path="/scenarios/equity" element={<EquityCooperation />} />
     </Routes>
   )
 }

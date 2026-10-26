@@ -196,6 +196,60 @@ export function SectionTitle({
   )
 }
 
+/* ---------- 场景矩阵 ---------- */
+const SCENARIOS = [
+  { key: 'labor', label: '劳动用工', freq: '高频 · 低额', level: '大模型秒出 80%', accent: '#F26522' },
+  { key: 'purchase', label: '采购销售', freq: '高频 · 低额', level: '大模型秒出 80%', accent: '#D97706' },
+  { key: 'lease', label: '租赁服务', freq: '低频 · 高额', level: '律师复核兜底', accent: '#0284C7' },
+  { key: 'equity', label: '股权合作', freq: '低频 · 高额', level: '律师复核兜底', accent: '#7C3AED' },
+]
+
+export function ScenarioMatrix({ current }: { current: string }) {
+  return (
+    <section className="mx-auto max-w-[1440px] px-5 pb-4 sm:px-8 lg:px-12">
+      <Reveal>
+        <div className="rounded-3xl border border-white/60 bg-gradient-to-br from-white/85 to-white/45 p-6 shadow-[0_12px_40px_rgba(0,0,0,0.06)] backdrop-blur-md sm:p-8">
+          <h3 className="text-[13px] font-semibold text-gray-900">四个标准场景，构成完整的产品射程</h3>
+          <p className="mt-1 text-[12px] text-gray-500">
+            用工和采购是每天都要面对的高频低额需求；租赁和股权是决定企业生死的低频高额需求。
+          </p>
+          <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {SCENARIOS.map((s) => {
+              const active = s.key === current
+              return (
+                <div
+                  key={s.key}
+                  className={`rounded-xl border p-4 transition-all duration-300 hover:-translate-y-1 ${
+                    active
+                      ? 'border-transparent bg-gray-900 shadow-lg'
+                      : 'border-white/60 bg-white/60 hover:bg-white/90 hover:shadow-md'
+                  }`}
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="h-2 w-2 rounded-full" style={{ backgroundColor: s.accent }} />
+                    <span className={`text-[13.5px] font-semibold ${active ? 'text-white' : 'text-gray-900'}`}>
+                      {s.label}
+                    </span>
+                    {active && (
+                      <span className="ml-auto rounded-full bg-[#F26522] px-2 py-0.5 text-[9.5px] font-bold text-white">
+                        当前
+                      </span>
+                    )}
+                  </div>
+                  <div className={`mt-2 text-[11.5px] ${active ? 'text-gray-300' : 'text-gray-500'}`}>{s.freq}</div>
+                  <div className="mt-1.5 text-[11.5px] font-medium" style={{ color: active ? '#FBA97A' : s.accent }}>
+                    {s.level}
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </Reveal>
+    </section>
+  )
+}
+
 /* ---------- Bottom CTA ---------- */
 export function FeatureCTA({ note }: { note: string }) {
   return (
