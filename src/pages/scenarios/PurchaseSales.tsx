@@ -48,6 +48,23 @@ function PaymentDemo() {
         style={{ accentColor: color }}
       />
 
+      <div className="mt-3 flex flex-wrap gap-1.5">
+        {[0, 30, 60, 90, 120, 180].map((d) => (
+          <button
+            key={d}
+            type="button"
+            onClick={() => setDays(d)}
+            className={`rounded-full border px-2.5 py-1 text-[11.5px] font-medium transition-all duration-300 hover:-translate-y-0.5 ${
+              days === d
+                ? 'border-transparent bg-gray-900 text-white shadow-md'
+                : 'border-white/70 bg-white/60 text-gray-600 hover:bg-white/95'
+            }`}
+          >
+            {d} 天
+          </button>
+        ))}
+      </div>
+
       <div className="mt-1 flex justify-between text-[10.5px] text-gray-400">
         {[0, 30, 60, 90, 120, 150, 180].map((d) => (
           <span key={d}>{d}</span>
